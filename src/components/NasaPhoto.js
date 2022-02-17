@@ -1,4 +1,23 @@
 import React from 'react';
+import styled, { keyframes } from 'styled-components';
+
+const StyledSpace = styled.div`
+    justify-content: space-evenly;
+    padding: 8px;
+    border-top: 9px solid #fc3d21;
+    border-bottom: 9px solid #fc3d21;
+    background-color: ${pr => pr.theme.black};
+
+    h2 {
+        color: ${pr => pr.theme.primaryColor};
+    }
+    p {
+        color: ${pr => pr.theme.textColor};
+    }
+    header {
+        color: ${pr => pr.theme.tertiaryColor}
+    }
+`
 
 // const dummyData = {
   
@@ -10,14 +29,23 @@ import React from 'react';
 
 const NasaPhoto = (props) => {
     return (
-        <div>
-            <h1>NASA STUFF OF THE DAY!</h1>
-            <iframe width="800" height="400" src={props.photo.url} />
-            <h2>{props.photo.title}</h2>
-            <p>{props.photo.date}</p>
-            <h2>Explanation!</h2>
-            <p>{props.photo.explanation}</p>
-        </div>
+            
+        <StyledSpace>
+            <header>
+                <h1>{props.photo.title}</h1>
+            </header>
+            
+            <middle>
+                <h2>Date</h2>
+                <p>{props.photo.date}</p>
+                <img width="800" height="400" src={props.photo.hdurl} />
+            </middle>
+
+            <footer>
+                <h2>Explanation!</h2>
+                <p>{props.photo.explanation}</p>
+            </footer>
+        </StyledSpace>
     )
 }
 
